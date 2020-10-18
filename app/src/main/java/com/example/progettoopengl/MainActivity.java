@@ -22,6 +22,8 @@ import com.example.progettoopengl.openGL.threads.MangerThreads;
 
 public class MainActivity extends Activity implements View.OnTouchListener {
 
+    //For Macos Simulator:
+    // /Users/teodorchetrusca/Library/Android/sdk/emulator/emulator -adv Pixel_3a_API_30_x86 -gpu swiftshader_indirect &
     // Gesture Variables
     private DisplayMetrics displayM;
     private int numberOfTaps = 0;

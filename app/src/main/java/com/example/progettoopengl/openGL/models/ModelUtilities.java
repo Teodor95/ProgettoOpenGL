@@ -255,7 +255,7 @@ public class ModelUtilities {
                 rotation = new float[]{15f, 60f, 40f};
                 scaling = new float[]{0.3f, 0.3f, 0.3f};
                 return new GenericModel(View.PROXIMITY_SENSORS, Models.SENSOR_CAR,
-                        "car.ply", rotation, scaling, "grigio2");
+                        "car.ply", rotation, scaling, "grigio");
             }
             case SENSOR_CIRCLE: {
                 rotation = new float[]{45f, 150f, 0f};
