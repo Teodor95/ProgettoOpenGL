@@ -67,7 +67,6 @@ public class MainActivity extends Activity implements View.OnTouchListener {
         surface.setEGLContextClientVersion(supported);
         surface.setPreserveEGLContextOnPause(true);
         GLSurfaceView.Renderer renderer = new BasicRenderer(0.45f, 0.32f, 0.13f);
-
         renderer = new MainRenderer();
         setContentView(surface);
         ((MainRenderer) renderer).setContextAndSurface(this, surface);

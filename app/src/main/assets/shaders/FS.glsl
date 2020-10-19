@@ -8,17 +8,17 @@ uniform sampler2D moonspec;  // Uniform int value passed from host. It is a 2D t
 uniform vec3 lightPos;
 uniform vec3 eyePos;
 
-uniform int usingLightD;//se uso la dash light
-uniform int lightDPos;//quale parte deve essere illuminata
+uniform int usingLightD; //se uso la dash light
+uniform int lightDPos; //quale parte deve essere illuminata
 
-uniform int usingSensor;//se uso il sensore
+uniform int usingSensor; //se uso il sensore
 uniform vec4 sensorAreasPos;//quale parte deve essere illuminata
 
 
 in vec2 varyingTexCoord;
 in vec3 transfNormal;
 in vec3 fragModel;
-out vec4 fragColor;
+out vec4 fragColor; //output to rest of the graphic pipeline
 
 
 /*
@@ -107,16 +107,12 @@ void main() {
                 tmp *= vec4(10, 10, 10, 1);//moltiplico quei pixel che non sono neri di un fattore 10
             }
         }
-
     }
     if (usingSensor > 0){
         tmp = checkSensorArea(flipped_texcoord);
     }
 
-    //tmp += specular*specMap + diffuse*diffuseMap;
     tmp += ambientComponent + diffuse*diffuseMap + specular*specMap;
-
     fragColor = tmp;
-    //fragColor = ambientComponent + diffuse*diffuseMap + specular*specMap;
 
 }

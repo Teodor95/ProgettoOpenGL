@@ -6,7 +6,6 @@ import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
 import android.os.Build;
 import android.util.Log;
-import android.view.View;
 
 import androidx.annotation.RequiresApi;
 

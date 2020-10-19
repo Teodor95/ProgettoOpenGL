@@ -222,6 +222,8 @@ public class GenericModel {
      */
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void initTexture(Context context, int shaderHandle) {
+
+        //texture object creation
         this.texUnit = new int[3];
         // Attribute location index
         this.texUnit[0] = glGetUniformLocation(shaderHandle, "moondiff");
@@ -239,15 +241,17 @@ public class GenericModel {
 
         this.texObjId = new int[1];
         glGenTextures(1, texObjId, 0);
-        glBindTexture(GL_TEXTURE_2D, texObjId[0]);
 
+        glBindTexture(GL_TEXTURE_2D, texObjId[0]);
+        //what happens if we scale-down the texture?
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
+        //what happens if we scale-up the texture?
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
 
-
+        //Transfer host data to device-only memory
         GLUtils.texImage2D(GL_TEXTURE_2D, 0, bitmap, 0);
         glGenerateMipmap(GL_TEXTURE_2D);
         glBindTexture(GL_TEXTURE_2D, 0);
